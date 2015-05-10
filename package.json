@@ -1,6 +1,6 @@
 {
   "name": "help",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "substack way of --help",
   "main": "index.js",
   "dependencies": {},
