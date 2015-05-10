@@ -2,7 +2,11 @@ var path = require('path')
   , fs = require('fs')
 
 module.exports = function(file) {
-  file = file || path.resolve('usage.txt')
+  file = file
+    ? file
+    : module.parent && module.parent.filename
+    ? path.resolve(path.dirname(module.parent.filename), 'usage.txt')
+    : path.resolve('usage.txt')
 
   return function(code) {
     var rs = fs.createReadStream(file)
