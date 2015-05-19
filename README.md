@@ -20,13 +20,15 @@ if (/* someone requested help */) {
 
 ## API
 
-help(filepath)
+help(filepath, stream)
 
 returns function(code)
 
 Pipes the contents of <filepath> to `process.stdout`.
 
 `code` is the exit code. If not falsy, then the process is explictly exited.
+
+`stream` defaults to `process.stdout`
 
 ## Full example
 

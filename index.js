@@ -1,7 +1,8 @@
 var path = require('path')
   , fs = require('fs')
 
-module.exports = function(file) {
+module.exports = function(file, stream) {
+  stream = stream || process.stdout
   file = file
     ? file
     : module.parent && module.parent.filename
@@ -10,7 +11,7 @@ module.exports = function(file) {
 
   return function(code) {
     var rs = fs.createReadStream(file)
-    rs.pipe(process.stdout)
+    rs.pipe(stream)
     rs.on('close', function() {
       if (code) process.exit(code)
     })
