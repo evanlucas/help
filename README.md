@@ -39,7 +39,7 @@ if (args[0] === '-h' || args[0] === '--help' || args[0] === 'help') {
 }
 
 // the first arg must be a number
-if (isNan(args[0])) {
+if (isNaN(args[0])) {
   // process prints contents of `usage.txt` and exits with code 1
   return help(1)
 }
