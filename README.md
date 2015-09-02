@@ -1,5 +1,8 @@
 # help
 
+[![Build Status](https://travis-ci.org/evanlucas/help.svg)](https://travis-ci.org/evanlucas/help)
+[![Coverage Status](https://coveralls.io/repos/evanlucas/help/badge.svg?branch=master&service=github)](https://coveralls.io/github/evanlucas/help?branch=master)
+
 [substack](https://github.com/substack) way of --help
 
 ## Install

@@ -1,3 +1,5 @@
+'use strict'
+
 var test = require('tap').test
   , spawn = require('child_process').spawn
   , path = require('path')
@@ -13,7 +15,7 @@ test('no options works', function(t) {
   })
 
   child.stderr.on('data', function(chunk) {
-    t.notOk(false, chunk)
+    t.ok(false, chunk)
   })
 
   child.on('close', function() {
@@ -26,14 +28,15 @@ test('no options works', function(t) {
 test('passing file works', function(t) {
   t.plan(1)
   var fp = path.join(fixtures, 'default', 'index.js')
-  var child = spawn(process.execPath, [fp, 'usage2.txt'])
+  var f = path.join(fixtures, 'default', 'usage2.txt')
+  var child = spawn(process.execPath, [fp, f])
   var res = ''
   child.stdout.on('data', function(chunk) {
     res += chunk
   })
 
   child.stderr.on('data', function(chunk) {
-    t.notOk(false, chunk)
+    t.ok(false, chunk)
   })
 
   child.on('close', function() {
@@ -45,14 +48,15 @@ test('passing file works', function(t) {
 test('passing file and exit code works', function(t) {
   t.plan(2)
   var fp = path.join(fixtures, 'default', 'index.js')
-  var child = spawn(process.execPath, [fp, 'usage2.txt', 12])
+  var f = path.join(fixtures, 'default', 'usage2.txt')
+  var child = spawn(process.execPath, [fp, f, 12])
   var res = ''
   child.stdout.on('data', function(chunk) {
     res += chunk
   })
 
   child.stderr.on('data', function(chunk) {
-    t.notOk(false, chunk)
+    t.ok(false, chunk)
   })
 
   child.on('close', function(code) {
