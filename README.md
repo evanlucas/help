@@ -23,7 +23,7 @@ if (/* someone requested help */) {
 
 ## API
 
-help(filepath, stream)
+### help(filepath, stream)
 
 returns function(code)
 
