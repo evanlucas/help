@@ -5,6 +5,9 @@
 
 [substack](https://github.com/substack) way of --help
 
+v3 of `help` requires at least Node.js v4. To use `help` with an older version,
+please use `help@2.x`.
+
 ## Install
 
 ```bash
