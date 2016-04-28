@@ -15,7 +15,7 @@ module.exports = function(file, stream) {
     var rs = fs.createReadStream(file)
     rs.pipe(stream)
     rs.on('close', function() {
-      if (code) process.exit(code)
+      if (code) process.exitCode = code
     })
   }
 }
