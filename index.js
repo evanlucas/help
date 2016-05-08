@@ -1,7 +1,7 @@
 'use strict'
 
-var path = require('path')
-  , fs = require('fs')
+const path = require('path')
+const fs = require('fs')
 
 module.exports = function(file, stream) {
   stream = stream || process.stdout
@@ -12,10 +12,12 @@ module.exports = function(file, stream) {
     : path.resolve('usage.txt')
 
   return function(code) {
-    var rs = fs.createReadStream(file)
+    const rs = fs.createReadStream(file)
     rs.pipe(stream)
-    rs.on('close', function() {
-      if (code) process.exitCode = code
-    })
+    if (code) {
+      rs.on('close', function() {
+        process.exitCode = code
+      })
+    }
   }
 }
